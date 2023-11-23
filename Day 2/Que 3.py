@@ -21,33 +21,38 @@
 # sure you want to exit?" If the user inputs "yes," the program should stop. If the
 # user inputs anything else, the program should continue.
 
-books = []
+books = {}
 print(
     "Welcome to the Library Management. Here are commands that can be used to manage book \n add -> add a book to the inventory \n remove -> remove a book from the inventory \n display -> display the current books in the inventory \n exit -> exit the program"
 )
 
 while True:
     command = input("Enter the command: ")
-    if command.lower() == "add":
-        title = input("Enter the title of book to add: ")
-        if title not in books:
-            books.append(title)
-        else:
-            print("This book is already in list")
-    elif command.lower() == "remove":
-        title = input("Enter the title of book to delete: ")
-        if title not in books:
-            print(f"{title} book doesn't exist")
-        else:
-            books.remove(title)
+    try:
+        if command.lower() == "add":
+            title = input("Enter the title of book to add: ")
+            if title not in books:
+                author = input("Enter the author of book: ")
+                books[title] = author
+            else:
+                print("This book is already in list")
+        elif command.lower() == "remove":
+            title = input("Enter the title of book to delete: ")
+            if title not in books:
+                print(f"{title} book doesn't exist")
+            else:
+                books.pop(title)
 
-    elif command.lower() == "display":
-        print(f"Books in the library are {books}")
+        elif command.lower() == "display":
+            for x, y in books.items():
+                print(f"{x} written by {y}")
 
-    elif command.lower() == "exit":
-        choice = input("Are you sure you want to exit? ")
-        if choice.lower() == "yes":
-            print("Exiting the program")
-            break
-    else:
-        print("Please enter a valid command(add/remove/display/exit)")
+        elif command.lower() == "exit":
+            choice = input("Are you sure you want to exit? ")
+            if choice.lower() == "yes":
+                print("Exiting the program")
+                break
+        else:
+            print("Please enter a valid command(add/remove/display/exit)")
+    except Exception as e:
+        print(f"An error occurred:{e}. Please try again.")

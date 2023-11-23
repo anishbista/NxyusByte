@@ -8,5 +8,10 @@ def list_square(n):
     return squares
 
 
-n = int(input("Enter any number: "))
-print(list_square(n))
+while True:
+    try:
+        n = int(input("Enter any number: "))
+        print(list_square(n))
+        break
+    except ValueError as e:
+        print("Enter number not other characters")
