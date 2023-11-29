@@ -18,6 +18,7 @@ while True:
             task_number = int(input("Enter the task number to mark as complete: "))
             if task_number < 1 or task_number > len(tasks):
                 print("Task not Found")
+
             else:
                 tasks[task_number - 1]["status"] = "Completed"
                 print(f"Task {task_number} is completed")
