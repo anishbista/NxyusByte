@@ -14,7 +14,7 @@ def load_tasks():
             lines = file.readlines()
             for line in lines:
                 description, status = line.strip().split(",")
-                task.append({"description": description, "status": status})
+                tasks.append({"description": description, "status": status})
     except FileNotFoundError:
         pass
     return tasks
@@ -33,11 +33,13 @@ while True:
 
         if command == "add":
             task_description = input("Enter task description: ")
-            for task in tasks:
-                if task["description"] == task_description:
-                    print("Task already exists")
-            tasks.append({"description": task_description, "status": "Incomplete"})
-            save_tasks(tasks)
+            task_exists = any(task["description"] == task_description for task in tasks)
+            if task_exists:
+                print("Task already exists")
+            else:
+                tasks.append({"description": task_description, "status": "Incomplete"})
+                save_tasks(tasks)
+                print("Task added successfully!")
 
         elif command == "complete":
             task_number = int(input("Enter the task number to mark as complete: "))
@@ -77,6 +79,7 @@ while True:
         elif command == "exit":
             choice = input("Are you sure you want to exit? (yes/no): ").lower()
             if choice == "yes":
+                save_tasks(tasks)
                 print("Exiting the program....")
                 break
         else:
