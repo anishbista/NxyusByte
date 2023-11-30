@@ -1,0 +1,74 @@
+{
+    "questions": [
+        {
+            "question": "Which planet is known as the Red Planet?",
+            "options": [
+                "Mars",
+                "Venus",
+                "Jupiter",
+                "Mercury"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Who wrote the play 'Romeo and Juliet'?",
+            "options": [
+                "William Shakespeare",
+                "Charles Dickens",
+                "Jane Austen",
+                "Mark Twain"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "What is the largest mammal in the world?",
+            "options": [
+                "Elephant",
+                "Blue Whale",
+                "Giraffe",
+                "Hippopotamus"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is the largest ocean in the world?",
+            "options": [
+                "Atlantic Ocean",
+                "Indian Ocean",
+                "Arctic Ocean",
+                "Pacific Ocean"
+            ],
+            "answer": 3
+        },
+        {
+            "question": "Which country is famous for the ancient ruins of Machu Picchu?",
+            "options": [
+                "Brazil",
+                "Peru",
+                "Mexico",
+                "Chile"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is the symbol for the chemical element iron?",
+            "options": [
+                "Fe",
+                "Ir",
+                "In",
+                "Io"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Who painted the famous artwork 'Starry Night'?",
+            "options": [
+                "Claude Monet",
+                "Pablo Picasso",
+                "Vincent van Gogh",
+                "Leonardo da Vinci"
+            ],
+            "answer": 2
+        }
+    ]
+}

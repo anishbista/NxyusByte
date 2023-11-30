@@ -12,8 +12,10 @@ def load_tasks():
     try:
         with open(file_path, "r") as file:
             lines = file.readlines()
+
             for line in lines:
                 description, status = line.strip().split(",")
+
                 tasks.append({"description": description, "status": status})
     except FileNotFoundError:
         pass
@@ -21,6 +23,7 @@ def load_tasks():
 
 
 tasks = load_tasks()
+print(tasks)
 
 
 print(
@@ -40,6 +43,7 @@ while True:
                 tasks.append({"description": task_description, "status": "Incomplete"})
                 save_tasks(tasks)
                 print("Task added successfully!")
+                print(tasks)
 
         elif command == "complete":
             task_number = int(input("Enter the task number to mark as complete: "))
