@@ -2,11 +2,15 @@
 <h2>Authors and Books</h2>
 <ul>
   {% for author in authors %}
-  <li>{{author.name}}</li>
+  <li>Name: {{author.name}}</li>
+  <li>Bio: {{author.bio}}</li>
   <ul>
     {% for book in books %} {% if book.author == author %}
 
-    <li>{{book.title}} - {{book.published_date}}</li>
+    <li>
+      <strong> Title:</strong> {{book.title}}
+      <strong> Published Date:</strong>{{book.published_date}}
+    </li>
     {% endif %} {% endfor %}
   </ul>
   {% endfor %}
