@@ -1,0 +1,14 @@
+{%extends 'base.html'%} {% block content%}
+<h2>Authors and Books</h2>
+<ul>
+  {% for author in authors %}
+  <li>{{author.name}}</li>
+  <ul>
+    {% for book in books %} {% if book.author == author %}
+
+    <li>{{book.title}} - {{book.published_date}}</li>
+    {% endif %} {% endfor %}
+  </ul>
+  {% endfor %}
+</ul>
+{% endblock %}
