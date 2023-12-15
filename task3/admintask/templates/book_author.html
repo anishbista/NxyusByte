@@ -1,4 +1,37 @@
 {% extends "base.html" %} {% block content %}
 <h2>Author and Book</h2>
+<table>
+  <tr>
+    <th>Book</th>
+    <th>Author</th>
+    <th>Category</th>
+    <style>
+      table{
+        border-collapse: collapse;
+        width: 100%
+      }
+      th,td{
+        border: 1px solid black;
+        padding: 21px;
+        text-align:center;
+      }
+      th{
+        background-color:skyblue;
+      }
+    </style>
+  </tr>
+  {% for book in books %}
+  <tr>
+    <td>{{book}}</td>
+    <td>{{book.author}}</td>
+    <td>
+      {% for category in book.category.all%} 
+      {{category}} 
+      {% if not forloop.last%} , {% endif %} 
+      {% endfor %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
 
 {% endblock content %}

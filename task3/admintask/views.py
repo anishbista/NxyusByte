@@ -10,4 +10,4 @@ def home(request):
         print(book.author)
         for category in book.category.all():
             print(category)
-    return render(request, "book_author.html", {"books": book})
+    return render(request, "book_author.html", {"books": books})
