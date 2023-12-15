@@ -13,23 +13,10 @@ class Author(models.Model):
         return self.name
 
 
-class Publisher(models.Model):
-    name = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name = "Publisher"
-        verbose_name_plural = "Publishers"
-
-    def __str__(self):
-        return self.name
-
-
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    authors = models.ManyToManyField(Author, related_name="books")
-    publisher = models.ForeignKey(
-        Publisher, on_delete=models.CASCADE, related_name="publisher"
-    )
+
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="author")
     published_date = models.DateField()
 
     class Meta:
@@ -39,3 +26,15 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    books = models.ManyToManyField(Book, related_name="category")
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
