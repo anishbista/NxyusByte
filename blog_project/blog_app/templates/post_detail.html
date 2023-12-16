@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Post Deatil</h2>
+
+<h1>Title: {{posts.title}}</h1>
+<p>Content: {{posts.content}}</p>
+<h2>Comments:</h2>
+<ul>
+    {% for comment in posts.comment.all%}
+    <li>
+        <p>Comment: {{comment.text}}</p>
+        <p>Author: {{comment.author}}</p>
+    </li>
+    {% empty %}
+    <li>No Comments yet.</li>
+    {%endfor%}
+</ul>
+
+
+
+{% endblock content %}
+
+
