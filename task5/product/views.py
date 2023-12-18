@@ -17,3 +17,8 @@ def add_product(request):
 def display_product(request):
     product = Product.objects.all()
     return render(request, "index.html", {"products": product})
+
+
+def product_detail(request, pk):
+    product = Product.objects.get(pk=pk)
+    return render(request, "product_detail.html", {"product": product})
