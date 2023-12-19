@@ -30,11 +30,13 @@ def product_detail(request, pk):
 
 def update_product(request, pk):
     product = Product.objects.get(pk=pk)
-    form = ProductForm(request.POST, request.FILES, instance=product)
     if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             return redirect("display_product")
+    else:
+        form = ProductForm(instance=product)
     return render(request, "update_product.html", {"form": form, "product": product})
 
 
