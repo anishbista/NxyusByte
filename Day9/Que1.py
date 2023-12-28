@@ -17,7 +17,7 @@ class User:
             self.users[username] = password
             print(f"User '{username}' registered successfully!")
         else:
-            print(
+            print( 
                 "Password should contain at least one lowercase,uppercase,digit and special characters and at least  8 characters"
             )
 
